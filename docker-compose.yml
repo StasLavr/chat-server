@@ -1,0 +1,22 @@
+services:
+
+  pgdb:
+    image: postgres
+    environment:
+       - POSTGRES_DB=chat
+       - POSTGRES_USER=chat
+       - POSTGRES_PASSWORD=chat
+    ports:
+      - 5432:5432
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 8090:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=lavr@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=lavr
+    depends_on:
+      - pgdb
+
+
